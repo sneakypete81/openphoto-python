@@ -9,9 +9,9 @@ script: tox
 
 env:
   global:
-    # Secrets required for badge uploading
-    - secure: "l4k4bnZvVx07S9isZ2ligZRc6MQluDfCLHa/+tIuNQtn7H8bxzcxkeVOellRBcZpZ6PmIJNlpFog7yStHqTvyyNnbijx1J8eArKl3rkdNTaz23TtciaPWSkbJiuuhZtRPCyF4YZTWvh+rSECkxXYwbIxSG+dbbzcOOU9BSTOCNE="
-    - secure: "WZ7ntQHXB/pjhYSUeI9nFytFyAP9GjWzCNtgkY5ZYulq4U3ZdBuzrsHgEkFxxNX/xqcAPA7Mb7LatdXpjnMwHt4Tk7pjhZaDNDVVgxCdc6g4g/mNjEU5C4QHMWdz7HqJeLIjvdD0xoc7VmAImJMuuZff2qN/zIX0XSJHvGxeecQ="
+    # Envvars required for badge uploading
+    - GH_REPO_SLUG=github.com/openphoto-python-badges/openphoto-python-badges
+    - secure: "BQ57gUh+90CqCxerAkGg2GeVCyuoIzxtpCEBC26rBJZbWJQPVc7uI3ncWnyzcioulvyIk2CLnWJdv1TuPejFiqqZczkpXxK57rvOexerxhykQ26TSAdrTD0uyaVFWUjiw/oCXRc1vlvqfITj03ZNv/utF3DZmGrflKNGfakmjsQ="
 
 after_success:
   # Send coverage results to coveralls.io
