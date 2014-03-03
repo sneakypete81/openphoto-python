@@ -7,6 +7,12 @@ install:
 
 script: tox
 
+env:
+  global:
+    # Secrets required for badge uploading
+    - secure: "l4k4bnZvVx07S9isZ2ligZRc6MQluDfCLHa/+tIuNQtn7H8bxzcxkeVOellRBcZpZ6PmIJNlpFog7yStHqTvyyNnbijx1J8eArKl3rkdNTaz23TtciaPWSkbJiuuhZtRPCyF4YZTWvh+rSECkxXYwbIxSG+dbbzcOOU9BSTOCNE="
+    - secure: "WZ7ntQHXB/pjhYSUeI9nFytFyAP9GjWzCNtgkY5ZYulq4U3ZdBuzrsHgEkFxxNX/xqcAPA7Mb7LatdXpjnMwHt4Tk7pjhZaDNDVVgxCdc6g4g/mNjEU5C4QHMWdz7HqJeLIjvdD0xoc7VmAImJMuuZff2qN/zIX0XSJHvGxeecQ="
+
 after_success:
   # Send coverage results to coveralls.io
   - coveralls
@@ -17,7 +23,12 @@ after_script:
   - pip install requests --use-mirrors
   - pip install requests-oauthlib --use-mirrors
 
+  # Create Pylint badge
+  - wget https://github.com/sneakypete81/badbadger/archive/master.zip
+  - unzip master.zip
+  - badbadger-master/scripts/badbadger custom
+
   # Run Pylint
   # Uses pylint-patcher to allow exceptions to be stored in a patchfile
   # (for information only, any errors don't affect the Travis result)
-  - pylint-patcher trovebox
+  # - pylint-patcher trovebox
