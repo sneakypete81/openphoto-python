@@ -18,8 +18,9 @@ after_success:
   - coveralls
 
 after_script:
-  # Install dependencies for Pylint
+  # Install dependencies for BadBadger & Pylint
   - pip install pylint-patcher --use-mirrors
+  - pip install GitPython --use-mirrors
   - pip install requests --use-mirrors
   - pip install requests-oauthlib --use-mirrors
 
